@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import RovTimer 1.0
 
 ApplicationWindow {
     id: window
@@ -61,5 +62,15 @@ ApplicationWindow {
         id: stackView
         initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
+    }
+
+    RovTimer {
+        id: rov_timer
+        interval: 1
+    }
+
+    HomeForm{
+        id: homeForm
+        timer_btn.onClicked: RovTimer.start()
     }
 }

@@ -6,6 +6,7 @@ Page {
     id: page
     width: 1280
     height: 670
+    property alias timer_btn: timer_btn
 
     title: qsTr("Home")
 
@@ -88,6 +89,10 @@ Page {
             fontSizeMode: Text.Fit
             font.pointSize: 70
             lineHeight: 1
+            MouseArea {
+                id: timer_btn
+                anchors.fill: parent
+            }
         }
     }
 
@@ -309,6 +314,6 @@ Page {
 
 
 /*##^## Designer {
-    D{i:2;anchors_height:168;anchors_width:337;anchors_x:67;anchors_y:703}D{i:28;anchors_y:404}
+    D{i:2;anchors_height:168;anchors_width:337;anchors_x:67;anchors_y:703}D{i:29;anchors_y:404}
 }
  ##^##*/

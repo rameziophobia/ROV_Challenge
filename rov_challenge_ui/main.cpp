@@ -1,8 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "rovtimer.h"
 
 int main(int argc, char *argv[])
 {
+    qmlRegisterType<RovTimer>("RovTimer", 1, 0, "RovTimer");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
