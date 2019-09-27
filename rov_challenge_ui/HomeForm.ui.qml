@@ -6,6 +6,7 @@ Page {
     id: page
     width: 1280
     height: 670
+    property alias timer_label: timer_label
     property alias timer_btn: timer_btn
 
     title: qsTr("Home")
@@ -83,7 +84,7 @@ Page {
         height: 100
 
         Label {
-            id: label
+            id: timer_label
             color: "#262b2a"
             text: qsTr("15:00")
             fontSizeMode: Text.Fit

@@ -66,11 +66,22 @@ ApplicationWindow {
 
     RovTimer {
         id: rov_timer
-        interval: 1
+        interval: 1000
+//        timerChanged: {
+//            timer_label: timer_text
+//        }
     }
 
     HomeForm{
         id: homeForm
-        timer_btn.onClicked: RovTimer.start()
+        timer_btn.onClicked: rov_timer.start()
+
+//        Connections {
+//            target: rov_timer
+////            timerChanged: timer_label.text =
+//            onInter
+//        }
+
+//        timer_label:
     }
 }

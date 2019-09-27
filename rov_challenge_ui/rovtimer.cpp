@@ -14,7 +14,20 @@ void RovTimer::start()
     timer->start(m_interval);
 }
 
+QString RovTimer::parseTime(int time)
+{
+    QString minutes = QString::number(time / 60);
+    QString seconds = QString::number(time % 60);
+
+    if(seconds.length() < 2){
+        seconds = "0" + seconds;
+    }
+    return minutes + ":" + seconds;
+}
+
 void RovTimer::update()
 {
-    qDebug() << "updating...";
+    time--;
+    m_label = parseTime(time);
+    qDebug() << "updating... " << m_label;
 }
