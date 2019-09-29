@@ -25,11 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        joystick.cpp \
+        joystick_receive.cpp \
         main.cpp \
         mainwindow.cpp \
         rovtimer.cpp
 
 HEADERS += \
+        joystick.h \
+        joystick_receive.h \
         mainwindow.h \
         rovtimer.h
 
