@@ -28,6 +28,8 @@ QString RovTimer::parseTime(int time)
 void RovTimer::update()
 {
     time--;
-    m_label = parseTime(time);
-    qDebug() << "updating... " << m_label;
+//    m_label = parseTime(time);
+    setDisplay(parseTime(time));
+    qDebug() << "updating1... " << m_label;
+    qDebug() << "updating2... " << display();
 }

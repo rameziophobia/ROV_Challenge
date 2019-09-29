@@ -8,6 +8,7 @@ ApplicationWindow {
     width: 1280
     height: 720
     title: qsTr("Stack")
+    property alias my_text:my_text
 
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
@@ -62,26 +63,27 @@ ApplicationWindow {
         id: stackView
         initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
-    }
 
+
+
+        HomeForm{
+            id: homeForm
+            timer_btn.onClicked: rov_timer.start()
+            Text {
+                id: my_text
+                text: rov_timer.timer_text
+                font.pointSize: 80
+            }
+            timer_label{
+                text: rov_timer.timer_text
+                }
+        }
+    }
     RovTimer {
         id: rov_timer
         interval: 1000
-//        timerChanged: {
-//            timer_label: timer_text
-//        }
     }
 
-    HomeForm{
-        id: homeForm
-        timer_btn.onClicked: rov_timer.start()
 
-//        Connections {
-//            target: rov_timer
-////            timerChanged: timer_label.text =
-//            onInter
-//        }
 
-//        timer_label:
-    }
 }
