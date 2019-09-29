@@ -2,11 +2,12 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include "rovtimer.h"
+#include <joystick.h>
 
 int main(int argc, char *argv[])
 {
     qmlRegisterType<RovTimer>("RovTimer", 1, 0, "RovTimer");
-
+    Joystick *myJoystick = new Joystick();
 //    QQuickView view;
 //    RovTimer data;
 //    view.rootContext()->setContextProperty("applicationData", &data);
