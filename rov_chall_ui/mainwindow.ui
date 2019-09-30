@@ -11,21 +11,21 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ROV Control Center</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="my_lbl">
+   <widget class="QLabel" name="timerlabel">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>490</y>
+      <x>900</x>
+      <y>530</y>
       <width>361</width>
-      <height>121</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>72</pointsize>
+      <pointsize>68</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -36,81 +36,106 @@
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
     </property>
-   </widget>
-   <widget class="QOpenGLWidget" name="openGLWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>832</width>
-      <height>468</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QOpenGLWidget" name="openGLWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>860</x>
-      <y>10</y>
-      <width>400</width>
-      <height>225</height>
-     </rect>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>490</y>
-      <width>411</width>
+      <width>421</width>
       <height>181</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0" columnstretch="0,0,0">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0" columnstretch="0,0,0">
+     <property name="horizontalSpacing">
+      <number>15</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>6</number>
+     </property>
      <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="detonate">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>Detonate!</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="openDoor">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>Open door</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="countCoins">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
-        <string>Coins</string>
+        <string>Count Coins</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="detectMetal">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>Detect metal</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="lineFollower">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>Line follower</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="setCamAngle">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>Set cam angle</string>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="camAngle">
        <property name="text">
         <string>0 - 360</string>
        </property>
@@ -120,9 +145,9 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="metalType">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Aluminum</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -130,9 +155,9 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="coins">
        <property name="text">
-        <string>TextLabel</string>
+        <string>0</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -152,35 +177,65 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0" columnstretch="0,0">
      <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="box2Detect">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>box 2</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_13">
+      <widget class="QPushButton" name="box1Detect">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>box 1</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="box3Detect">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>box 3</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="compareBoxes">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="text">
         <string>compare</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1" rowspan="2">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="boxInfo">
        <property name="text">
         <string>box info</string>
        </property>
@@ -191,27 +246,39 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="startTimer">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>620</y>
+      <x>920</x>
+      <y>630</y>
       <width>158</width>
-      <height>28</height>
+      <height>40</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>40</height>
+     </size>
     </property>
     <property name="text">
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="keyBindings">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>620</y>
+      <x>1090</x>
+      <y>630</y>
       <width>161</width>
-      <height>28</height>
+      <height>40</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>40</height>
+     </size>
     </property>
     <property name="text">
      <string>Key bindings</string>
@@ -220,9 +287,9 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>270</y>
-      <width>391</width>
+      <x>890</x>
+      <y>290</y>
+      <width>390</width>
       <height>221</height>
      </rect>
     </property>
@@ -232,11 +299,14 @@
        <property name="maximumSize">
         <size>
          <width>16777215</width>
-         <height>100</height>
+         <height>30</height>
         </size>
        </property>
        <property name="text">
-        <string>sensor data</string>
+        <string>Sensor data: </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -245,9 +315,39 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="distancesens">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Distance Sensor: 50 cm</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="depthsens">
+           <property name="text">
+            <string>Depth Sensor: 3.2 m</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="pwmcheck">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0,255,0)</string>
+           </property>
+           <property name="text">
+            <string>PWM OK</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -255,23 +355,96 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="voltagecheck">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255,0,0)</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Voltage ! ( input )</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Camera 1 angle: 90</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="cputemp">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0,255,0)</string>
+           </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>CPU temp: 60 C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="hulltemp">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(200,200,0)</string>
+           </property>
+           <property name="text">
+            <string>Main Hull temp:  80 C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="powertemp">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255,0,0)</string>
+           </property>
+           <property name="text">
+            <string>Power Hull temp: 100 C</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="currentcheck">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0,255,0)</string>
+           </property>
+           <property name="text">
+            <string>Current OK</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -279,12 +452,16 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>TextLabel</string>
+          <widget class="Line" name="line_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>camera 2 angle: 90</string>
            </property>
           </widget>
          </item>
@@ -294,6 +471,25 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="switchCameras">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>240</y>
+      <width>231</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Switch Cameras</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -301,17 +497,9 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
