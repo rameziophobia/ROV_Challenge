@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,16 +29,22 @@ SOURCES += \
         joystick_receive.cpp \
         main.cpp \
         mainwindow.cpp \
-        rovtimer.cpp
+        rovtimer.cpp \
+    keybindings.cpp
 
 HEADERS += \
         joystick.h \
         joystick_receive.h \
         mainwindow.h \
-        rovtimer.h
+        rovtimer.h \
+    keybindings.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    keybindings.ui
+
+LIBS += -L/usr/local/lib -lSDL2
+INCLUDEPATH += /usr/local/include
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
