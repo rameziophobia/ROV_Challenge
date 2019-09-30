@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Key Bindings</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -43,168 +43,168 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Button E</string>
+         <string>Action 5</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Button F</string>
+         <string>Action 6</string>
         </property>
        </widget>
       </item>
       <item row="6" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Button G</string>
+         <string>Action 7</string>
         </property>
        </widget>
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Button H</string>
+         <string>Action 8</string>
         </property>
        </widget>
       </item>
       <item row="8" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Button I</string>
+         <string>Action 9</string>
         </property>
        </widget>
       </item>
       <item row="9" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Button J</string>
+         <string>Action 10</string>
         </property>
        </widget>
       </item>
       <item row="10" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>Button K</string>
+         <string>Action 11</string>
         </property>
        </widget>
       </item>
       <item row="11" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
-         <string>Button L</string>
+         <string>Action 12</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_9">
         <property name="text">
-         <string>Button D</string>
+         <string>Action 4</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_10">
         <property name="text">
-         <string>Button C</string>
+         <string>Action 3</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_11">
         <property name="text">
-         <string>Button B</string>
+         <string>Action 2</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_12">
         <property name="text">
-         <string>Button A</string>
+         <string>Action 1</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="pushButtonA">
         <property name="text">
-         <string>Action 1</string>
+         <string>Button A</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="pushButtonB">
         <property name="text">
-         <string>Action 2</string>
+         <string>Button B</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
        <widget class="QPushButton" name="pushButtonC">
         <property name="text">
-         <string>Action 3</string>
+         <string>Button C</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
        <widget class="QPushButton" name="pushButtonD">
         <property name="text">
-         <string>Action 4</string>
+         <string>Button D</string>
         </property>
        </widget>
       </item>
       <item row="4" column="1">
        <widget class="QPushButton" name="pushButtonE">
         <property name="text">
-         <string>Action 5</string>
+         <string>Button E</string>
         </property>
        </widget>
       </item>
       <item row="5" column="1">
        <widget class="QPushButton" name="pushButtonF">
         <property name="text">
-         <string>Action 6</string>
+         <string>Button F</string>
         </property>
        </widget>
       </item>
       <item row="6" column="1">
        <widget class="QPushButton" name="pushButtonG">
         <property name="text">
-         <string>Action 7</string>
+         <string>Button G</string>
         </property>
        </widget>
       </item>
       <item row="7" column="1">
        <widget class="QPushButton" name="pushButtonH">
         <property name="text">
-         <string>Action 8</string>
+         <string>Button H</string>
         </property>
        </widget>
       </item>
       <item row="8" column="1">
        <widget class="QPushButton" name="pushButtonI">
         <property name="text">
-         <string>Action 9</string>
+         <string>Button I</string>
         </property>
        </widget>
       </item>
       <item row="9" column="1">
        <widget class="QPushButton" name="pushButtonJ">
         <property name="text">
-         <string>Action 10</string>
+         <string>Button J</string>
         </property>
        </widget>
       </item>
       <item row="10" column="1">
        <widget class="QPushButton" name="pushButtonK">
         <property name="text">
-         <string>Action 11</string>
+         <string>Button K</string>
         </property>
        </widget>
       </item>
       <item row="11" column="1">
        <widget class="QPushButton" name="pushButtonL">
         <property name="text">
-         <string>Action 12</string>
+         <string>Button L</string>
         </property>
        </widget>
       </item>
