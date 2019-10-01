@@ -22,11 +22,14 @@ public:
 private slots:
     void updateTimeLabel(QString newTime);
 
-    void on_switchCameras_clicked();
+    void on_box1Detect_btn_clicked();
+    void on_box2Detect_btn_clicked();
+    void on_box3Detect_btn_clicked();
+    void on_compareBoxes_btn_clicked();
 
-    void on_startTimer_clicked();
-
-    void on_keyBindings_clicked();
+    void on_startTimer_btn_clicked();
+    void on_keyBindings_btn_clicked();
+    void on_switchCameras_btn_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -39,6 +42,11 @@ private:
     QVideoWidget *vwmain;
     QVideoWidget *vwsecondary;
     bool switched;
+
+    const QString SCRIPTS_PATH = R"(/media/ramez/OS/Ramez/programming/code/Qt/rov_chall_ui/python_scripts/)";
+    const QString PYTHON_VERSION = "python3.7";
+    void box_script(QString boxNum);
+    QString run_script(QStringList);
 };
 
 #endif // MAINWINDOW_H
