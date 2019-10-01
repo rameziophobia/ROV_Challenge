@@ -138,3 +138,22 @@ void MainWindow::on_compareBoxes_btn_clicked()
         ui->boxInfo_lbl->setText("ERROR");
     }
 }
+
+void MainWindow::on_countCoins_btn_clicked()
+{
+    QString kernalSize = ui->kernalSize_lbl->text();
+    QString img_path = R"(/media/ramez/OS/Ramez/programming/code/Qt/rov_chall_ui/python_scripts/testing/coins3.jpeg)";
+    QStringList params;
+    params << SCRIPTS_PATH + "coin_detection.py" << "--image" << img_path << "--kernal" << kernalSize;
+
+    ui->coins_lbl->setText(
+                run_script(params));
+}
+
+void MainWindow::on_kernal_slider_valueChanged(int value)
+{
+    // pass new_value to kernalSize_lbl
+    // if value is even increment by 1
+    value = (value % 2 == 0) ? value + 1 : value;
+    ui->kernalSize_lbl->setText(QString::number(value));
+}

@@ -31,6 +31,9 @@ private slots:
     void on_keyBindings_btn_clicked();
     void on_switchCameras_btn_clicked();
 
+    void on_countCoins_btn_clicked();
+    void on_kernal_slider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     RovTimer * rovTimer;
