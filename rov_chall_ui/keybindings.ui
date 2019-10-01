@@ -41,84 +41,84 @@
     <item>
      <layout class="QFormLayout" name="formLayout_2">
       <item row="4" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="action5_lbl">
         <property name="text">
          <string>Action 5</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="action6_lbl">
         <property name="text">
          <string>Action 6</string>
         </property>
        </widget>
       </item>
       <item row="6" column="0">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="action7_lbl">
         <property name="text">
          <string>Action 7</string>
         </property>
        </widget>
       </item>
       <item row="7" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="action8_lbl">
         <property name="text">
          <string>Action 8</string>
         </property>
        </widget>
       </item>
       <item row="8" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="action9_lbl">
         <property name="text">
          <string>Action 9</string>
         </property>
        </widget>
       </item>
       <item row="9" column="0">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="action10_lbl">
         <property name="text">
          <string>Action 10</string>
         </property>
        </widget>
       </item>
       <item row="10" column="0">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="action11_lbl">
         <property name="text">
          <string>Action 11</string>
         </property>
        </widget>
       </item>
       <item row="11" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="action12_lbl">
         <property name="text">
          <string>Action 12</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="action4_lbl">
         <property name="text">
          <string>Action 4</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="action3_lbl">
         <property name="text">
          <string>Action 3</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_11">
+       <widget class="QLabel" name="action2_lbl">
         <property name="text">
          <string>Action 2</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="label_12">
+       <widget class="QLabel" name="action1_lbl">
         <property name="text">
          <string>Action 1</string>
         </property>
@@ -211,7 +211,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QDialogButtonBox" name="dialogButtonBox">
+     <widget class="QDialogButtonBox" name="close_dialogButtonBox">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -236,7 +236,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>dialogButtonBox</sender>
+   <sender>close_dialogButtonBox</sender>
    <signal>accepted()</signal>
    <receiver>keyBindings</receiver>
    <slot>accept()</slot>
@@ -252,7 +252,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>dialogButtonBox</sender>
+   <sender>close_dialogButtonBox</sender>
    <signal>rejected()</signal>
    <receiver>keyBindings</receiver>
    <slot>reject()</slot>
