@@ -3,8 +3,11 @@ import json
 boxes = [{}, {}, {}]
 # load all 3 pattern dictionaries
 for i in range(1, 4):
-    with open("output_b" + str(i) + ".json", "r") as fp: 
-        boxes[i - 1] = json.loads(fp.read())
+    try:
+        with open("output_b" + str(i) + ".json", "r") as fp: 
+            boxes[i - 1] = json.loads(fp.read())
+    except FileNotFoundError as identifier:
+        print("add inputs first plz ERROR 404 FILES NOT FOUND")
 
 common_1_2 = common_2_3 = common_1_3 = 0
 # count the common shapes between each 2 boxes
