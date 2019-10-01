@@ -14,7 +14,7 @@
    <string>ROV Control Center</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="timerlabel">
+   <widget class="QLabel" name="timer_lbl">
     <property name="geometry">
      <rect>
       <x>900</x>
@@ -49,7 +49,7 @@
       <height>181</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0" columnstretch="0,0,0">
+    <layout class="QGridLayout" name="scripts_gridLayout" rowstretch="0,0,0,0" columnstretch="0,0,0">
      <property name="horizontalSpacing">
       <number>15</number>
      </property>
@@ -57,7 +57,7 @@
       <number>6</number>
      </property>
      <item row="2" column="0">
-      <widget class="QPushButton" name="detonate">
+      <widget class="QPushButton" name="detonate_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -70,7 +70,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="openDoor">
+      <widget class="QPushButton" name="openDoor_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -83,7 +83,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="countCoins">
+      <widget class="QPushButton" name="countCoins_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -96,7 +96,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="detectMetal">
+      <widget class="QPushButton" name="detectMetal_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -109,7 +109,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="lineFollower">
+      <widget class="QPushButton" name="lineFollower_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -122,7 +122,7 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QPushButton" name="setCamAngle">
+      <widget class="QPushButton" name="setCamAngle_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -135,7 +135,7 @@
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QLineEdit" name="camAngle">
+      <widget class="QLineEdit" name="camAngle_lineEdit">
        <property name="text">
         <string>0 - 360</string>
        </property>
@@ -145,7 +145,7 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLabel" name="metalType">
+      <widget class="QLabel" name="metalType_lbl">
        <property name="text">
         <string>Aluminum</string>
        </property>
@@ -155,7 +155,7 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLabel" name="coins">
+      <widget class="QLabel" name="coins_lbl">
        <property name="text">
         <string>0</string>
        </property>
@@ -175,9 +175,9 @@
       <height>171</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0" columnstretch="0,0">
+    <layout class="QGridLayout" name="boxScripts_gridLayout" rowstretch="0,0,0,0" columnstretch="0,0">
      <item row="2" column="0">
-      <widget class="QPushButton" name="box2Detect">
+      <widget class="QPushButton" name="box2Detect_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -190,7 +190,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="box1Detect">
+      <widget class="QPushButton" name="box1Detect_btn">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
          <horstretch>0</horstretch>
@@ -209,7 +209,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="box3Detect">
+      <widget class="QPushButton" name="box3Detect_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -222,7 +222,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="compareBoxes">
+      <widget class="QPushButton" name="compareBoxes_btn">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -235,7 +235,7 @@
       </widget>
      </item>
      <item row="2" column="1" rowspan="2">
-      <widget class="QLabel" name="boxInfo">
+      <widget class="QLabel" name="boxInfo_lbl">
        <property name="text">
         <string>box info</string>
        </property>
@@ -246,7 +246,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="startTimer">
+   <widget class="QPushButton" name="startTimer_btn">
     <property name="geometry">
      <rect>
       <x>920</x>
@@ -265,7 +265,7 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="keyBindings">
+   <widget class="QPushButton" name="keyBindings_btn">
     <property name="geometry">
      <rect>
       <x>1090</x>
@@ -293,7 +293,7 @@
       <height>221</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="sensorData_verticalLayout">
      <item>
       <widget class="QLabel" name="label_4">
        <property name="maximumSize">
@@ -471,7 +471,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="switchCameras">
+   <widget class="QPushButton" name="switchCameras_btn">
     <property name="geometry">
      <rect>
       <x>970</x>
