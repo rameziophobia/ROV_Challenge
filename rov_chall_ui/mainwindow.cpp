@@ -85,18 +85,22 @@ QString MainWindow::run_script(QStringList params)
     QProcess process;
     process.start(PYTHON_VERSION, params);
     process.waitForFinished(-1);
-//    qDebug() << process.readAllStandardError();
+    QString error = process.readAllStandardError();
+    if (error != "")
+        qDebug() << error;
 //    qDebug() << process.readAllStandardOutput();
     return process.readAllStandardOutput();
 }
 
 void MainWindow::box_script(QString boxNum)
 {
-//    TODO add gaussian kernal size as input
     QStringList params;
 
     QString img_path = R"(/media/ramez/OS/Ramez/programming/code/Qt/rov_chall_ui/python_scripts/testing/shapes.png)";
-    params << SCRIPTS_PATH + "shapes.py" << "--box" << boxNum << "--image" << img_path;
+    params << SCRIPTS_PATH + "shapes.py" <<
+              "--box" << boxNum <<
+              "--image" << img_path <<
+              "--kernal" << ui->kernalSize_lbl->text();
 
     QString out = run_script(params);
     ui->boxInfo_lbl->setText(out);
