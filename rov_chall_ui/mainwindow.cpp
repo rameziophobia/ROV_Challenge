@@ -150,8 +150,13 @@ void MainWindow::on_countCoins_btn_clicked()
     QStringList params;
     params << SCRIPTS_PATH + "coin_detection.py" << "--image" << img_path << "--kernal" << kernalSize;
 
-    ui->coins_lbl->setText(
-                run_script(params));
+    QString coinNum = run_script(params);
+    params.clear();
+    params << SCRIPTS_PATH + "cat_detection.py" << "--image" << img_path <<
+              "--cascade" << SCRIPTS_PATH + "haarcascade_frontalcatface.xml";
+
+    coinNum += "(" + run_script(params) + " cats)";
+    ui->coins_lbl->setText(coinNum);
 }
 
 void MainWindow::on_kernal_slider_valueChanged(int value)
