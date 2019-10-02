@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>rov_challenge</name>
+  <version>0.0.1</version>
+  <description>ROV Controller</description>
+  <license>BSD</license>
+  <maintainer email="rovteamcomp@gmail.com">ASU ROV Team</maintainer>
+  <author email="rovteamcomp@gmail.com">ASU ROV Team</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  
+  <run_depend>catkin</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+</package>
