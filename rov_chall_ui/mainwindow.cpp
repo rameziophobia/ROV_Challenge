@@ -85,18 +85,22 @@ QString MainWindow::run_script(QStringList params)
     QProcess process;
     process.start(PYTHON_VERSION, params);
     process.waitForFinished(-1);
-//    qDebug() << process.readAllStandardError();
+    QString error = process.readAllStandardError();
+    if (error != "")
+        qDebug() << error;
 //    qDebug() << process.readAllStandardOutput();
     return process.readAllStandardOutput();
 }
 
 void MainWindow::box_script(QString boxNum)
 {
-//    TODO add gaussian kernal size as input
     QStringList params;
 
     QString img_path = R"(/media/ramez/OS/Ramez/programming/code/Qt/rov_chall_ui/python_scripts/testing/shapes.png)";
-    params << SCRIPTS_PATH + "shapes.py" << "--box" << boxNum << "--image" << img_path;
+    params << SCRIPTS_PATH + "shapes.py" <<
+              "--box" << boxNum <<
+              "--image" << img_path <<
+              "--kernal" << ui->kernalSize_lbl->text();
 
     QString out = run_script(params);
     ui->boxInfo_lbl->setText(out);
@@ -137,4 +141,28 @@ void MainWindow::on_compareBoxes_btn_clicked()
     }else {
         ui->boxInfo_lbl->setText("ERROR");
     }
+}
+
+void MainWindow::on_countCoins_btn_clicked()
+{
+    QString kernalSize = ui->kernalSize_lbl->text();
+    QString img_path = R"(/media/ramez/OS/Ramez/programming/code/Qt/rov_chall_ui/python_scripts/testing/coins3.jpeg)";
+    QStringList params;
+    params << SCRIPTS_PATH + "coin_detection.py" << "--image" << img_path << "--kernal" << kernalSize;
+
+    QString coinNum = run_script(params);
+    params.clear();
+    params << SCRIPTS_PATH + "cat_detection.py" << "--image" << img_path <<
+              "--cascade" << SCRIPTS_PATH + "haarcascade_frontalcatface.xml";
+
+    coinNum += "(" + run_script(params) + " cats)";
+    ui->coins_lbl->setText(coinNum);
+}
+
+void MainWindow::on_kernal_slider_valueChanged(int value)
+{
+    // pass new_value to kernalSize_lbl
+    // if value is even increment by 1
+    value = (value % 2 == 0) ? value + 1 : value;
+    ui->kernalSize_lbl->setText(QString::number(value));
 }

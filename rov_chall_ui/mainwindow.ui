@@ -43,7 +43,7 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>490</y>
       <width>421</width>
       <height>181</height>
@@ -169,10 +169,10 @@
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>510</x>
       <y>490</y>
       <width>371</width>
-      <height>171</height>
+      <height>181</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="boxScripts_gridLayout" rowstretch="0,0,0,0" columnstretch="0,0">
@@ -295,7 +295,7 @@
     </property>
     <layout class="QVBoxLayout" name="sensorData_verticalLayout">
      <item>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="sensorData_lbl">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -488,6 +488,44 @@
     </property>
     <property name="text">
      <string>Switch Cameras</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="kernal_slider">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>490</y>
+      <width>21</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>45</number>
+    </property>
+    <property name="singleStep">
+     <number>2</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="kernalSize_lbl">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>650</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

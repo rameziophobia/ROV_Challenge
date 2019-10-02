@@ -11,6 +11,7 @@ RovTimer::RovTimer()
 
 void RovTimer::start()
 {
+    time = 900;
     timer->start(m_interval);
 }
 
