@@ -6,6 +6,9 @@
 #include <QVideoWidget>
 #include "keybindings.h"
 #include "rovtimer.h"
+#include <std_msgs/String.h>
+#include "../libs/rospublisher.h"
+#include "../libs/rossubscriber.h"
 
 namespace Ui {
 class MainWindow;
@@ -50,6 +53,11 @@ private:
     const QString PYTHON_VERSION = "python3.7";
     void box_script(QString boxNum);
     QString run_script(QStringList);
+    void callback(std_msgs::String msg);
+    RosPublisher rosPublisher;
+    RosSubscriber rosSubscriber;
+
+    Q_SLOT void msgCallback(const QString &msg);
 };
 
 #endif // MAINWINDOW_H

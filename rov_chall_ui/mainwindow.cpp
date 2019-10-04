@@ -3,10 +3,14 @@
 #include "rovtimer.h"
 #include <QtDebug>
 #include <QProcess>
+#include <QMessageBox>
+#include "../libs/rossubscriber.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    rosPublisher("/rov_ctrl"),
+    rosSubscriber("/chatter", this)
 {
     ui->setupUi(this);
     rovTimer = new RovTimer;
@@ -36,6 +40,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     player1->play();
     player2->play();
+
+    connect(&rosSubscriber, &RosSubscriber::msgReceived, this, &MainWindow::msgCallback);
+    rosSubscriber.start();
+    ui->box1Detect_btn->setText("I'm Here");
+}
+
+void MainWindow::msgCallback(const QString &msg) {
+    ui->box1Detect_btn->setText(msg);
+}
+
+void MainWindow::callback(const std_msgs::String msg) {
+    QMessageBox box;
+    box.setText(msg.data.c_str());
+    box.exec();
 }
 
 MainWindow::~MainWindow()
@@ -72,6 +90,7 @@ void MainWindow::on_switchCameras_btn_clicked()
         vwmain->setGeometry(870,10,400,225);
         switched = true;
     }
+    rosPublisher.send("Screen Swiched");
 }
 
 
