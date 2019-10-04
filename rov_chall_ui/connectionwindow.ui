@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="plainText">
-     <string>http://golden-ubuntu16:11311/</string>
+     <string>http://10.42.0.55:11311/</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="txtHostIP">
@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="plainText">
-     <string>192.168.1.9</string>
+     <string>10.42.0.1</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="chkDefaultSettings">

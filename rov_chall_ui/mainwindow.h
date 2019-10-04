@@ -53,11 +53,11 @@ private:
     const QString PYTHON_VERSION = "python3.7";
     void box_script(QString boxNum);
     QString run_script(QStringList);
-    void callback(std_msgs::String msg);
-    RosPublisher rosPublisher;
-    RosSubscriber rosSubscriber;
 
-    Q_SLOT void msgCallback(const QString &msg);
+    RosPublisher<std_msgs::String> boxesPublisher;
+    RosSubscriber<std_msgs::String, MainWindow> boxesSubscriber;
+
+    void msgCallback(std_msgs::String msg);
 };
 
 #endif // MAINWINDOW_H

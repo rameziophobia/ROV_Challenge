@@ -6,11 +6,17 @@
 #include <QMessageBox>
 #include "../libs/rossubscriber.h"
 
+inline std_msgs::String getRosString(std::string str) {
+    std_msgs::String rs;
+    rs.data = str;
+    return rs;
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    rosPublisher("/rov_ctrl"),
-    rosSubscriber("/chatter", this)
+    boxesPublisher("/rov_boxes", this),
+    boxesSubscriber("/rov_boxes_info", &MainWindow::msgCallback, this, this)
 {
     ui->setupUi(this);
     rovTimer = new RovTimer;
@@ -40,20 +46,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     player1->play();
     player2->play();
-
-    connect(&rosSubscriber, &RosSubscriber::msgReceived, this, &MainWindow::msgCallback);
-    rosSubscriber.start();
-    ui->box1Detect_btn->setText("I'm Here");
+    ui->boxInfo_lbl->setText("I'm Here");
 }
 
-void MainWindow::msgCallback(const QString &msg) {
-    ui->box1Detect_btn->setText(msg);
-}
-
-void MainWindow::callback(const std_msgs::String msg) {
-    QMessageBox box;
-    box.setText(msg.data.c_str());
-    box.exec();
+void MainWindow::msgCallback(std_msgs::String msg) {
+    ui->boxInfo_lbl->setText(msg.data.c_str());
 }
 
 MainWindow::~MainWindow()
@@ -90,7 +87,6 @@ void MainWindow::on_switchCameras_btn_clicked()
         vwmain->setGeometry(870,10,400,225);
         switched = true;
     }
-    rosPublisher.send("Screen Swiched");
 }
 
 
@@ -128,16 +124,19 @@ void MainWindow::box_script(QString boxNum)
 void MainWindow::on_box1Detect_btn_clicked()
 {
     box_script("b1");
+    boxesPublisher.send(getRosString("detectBox1"));
 }
 
 void MainWindow::on_box2Detect_btn_clicked()
 {
     box_script("b2");
+    boxesPublisher.send(getRosString("detectBox2"));
 }
 
 void MainWindow::on_box3Detect_btn_clicked()
 {
     box_script("b3");
+    boxesPublisher.send(getRosString("detectBox3"));
 }
 
 void MainWindow::on_compareBoxes_btn_clicked()
