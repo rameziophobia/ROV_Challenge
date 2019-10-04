@@ -8,21 +8,49 @@
 #include <queue>
 #include <std_msgs/String.h>
 
-class RosPublisher : public QObject {
-    Q_OBJECT
+template<class T>
+class RosPublisher : public QThread {
 public:
-    void send(const std::string &msg);
-    RosPublisher(const std::string &topic);
-    ~RosPublisher();
-    Q_SLOT void run();
-    void shutdown();
+    void send(const T &msg) {
+        msgsQ.push(msg);
+    }
+
+    RosPublisher(const std::string &topic, QObject* parent = nullptr)
+        : QThread(parent), topic(topic), cancelled(false) {
+        ros::NodeHandle n;
+        publisher = n.advertise<T>(topic, 100);
+        start();
+    }
+
+    ~RosPublisher() {
+        this->shutdown();
+        publisher.shutdown();
+        wait();
+    }
+
+    void shutdown() {
+        cancelled = true;
+    }
+
+    void run() override {
+        ros::Rate loop_rate(100);
+        while (ros::ok() && !cancelled)
+        {
+            if (msgsQ.size()) {
+                auto msg = msgsQ.front();
+                msgsQ.pop();
+                publisher.publish(msg);
+            }
+            ros::spinOnce();
+            loop_rate.sleep();
+        }
+    }
 
 private:
     std::string topic;
-    QThread* thread;
     bool cancelled;
     ros::Publisher publisher;
-    std::queue<std_msgs::String> msgsQ;
+    std::queue<T> msgsQ;
 };
 
 #endif

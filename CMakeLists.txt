@@ -19,8 +19,6 @@ set(SOURCES
         rov_chall_ui/keybindings.cpp
         rov_chall_ui/connectionwindow.cpp
         libs/rosservice.cpp
-        libs/rospublisher.cpp
-        libs/rossubscriber.cpp
         )
 
 set(MOC_HEADERS

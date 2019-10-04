@@ -1,28 +1,43 @@
 #ifndef ___ROS_SUBSCRIBER_H___
 #define ___ROS_SUBSCRIBER_H___
 
-#include "rosservice.h"
+#include <ros/ros.h>
 #include <string>
 #include <QtCore>
 #include <QThread>
-#include <queue>
-#include <std_msgs/String.h>
-#include <ros/ros.h>
-#include <QDebug>
 
-class RosSubscriber : public QObject {
-    Q_OBJECT
+template <class M, class T>
+class RosSubscriber : public QThread {
 public:
-    RosSubscriber(const std::string &topic, QObject* parent = nullptr);
-    Q_SIGNAL void msgReceived(const QString &msg);
-    void start();
+    RosSubscriber(const std::string &topic, void(T::*fp)(M), T* obj, QObject* parent)
+        :QThread(parent), cancelled(false) {
+        ros::NodeHandle n;
+        subscriber = n.subscribe(topic, 100, fp, obj);
+        start();
+    }
+
+    void run() override {
+        ros::Rate loop_rate(100);
+        while (ros::ok() && !cancelled)
+        {
+            ros::spinOnce();
+            loop_rate.sleep();
+        }
+    }
+
+    void shutdown() {
+        cancelled = true;
+    }
+
+    ~RosSubscriber() {
+        shutdown();
+        subscriber.shutdown();
+        wait();
+    }
 
 private:
     ros::Subscriber subscriber;
-    Q_SLOT void run();
-    Q_SLOT void callback(const std_msgs::String msg);
-    QThread* thread;
-    std::string m_topic;
+    bool cancelled;
 };
 
 #endif
