@@ -125,84 +125,84 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QPushButton" name="pushButtonA">
+       <widget class="QPushButton" name="pushButton1">
         <property name="text">
          <string>Button A</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="pushButtonB">
+       <widget class="QPushButton" name="pushButton2">
         <property name="text">
          <string>Button B</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="pushButtonC">
+       <widget class="QPushButton" name="pushButton3">
         <property name="text">
          <string>Button C</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QPushButton" name="pushButtonD">
+       <widget class="QPushButton" name="pushButton4">
         <property name="text">
          <string>Button D</string>
         </property>
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QPushButton" name="pushButtonE">
+       <widget class="QPushButton" name="pushButton5">
         <property name="text">
          <string>Button E</string>
         </property>
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QPushButton" name="pushButtonF">
+       <widget class="QPushButton" name="pushButton6">
         <property name="text">
          <string>Button F</string>
         </property>
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="QPushButton" name="pushButtonG">
+       <widget class="QPushButton" name="pushButton7">
         <property name="text">
          <string>Button G</string>
         </property>
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="QPushButton" name="pushButtonH">
+       <widget class="QPushButton" name="pushButton8">
         <property name="text">
          <string>Button H</string>
         </property>
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QPushButton" name="pushButtonI">
+       <widget class="QPushButton" name="pushButton9">
         <property name="text">
          <string>Button I</string>
         </property>
        </widget>
       </item>
       <item row="9" column="1">
-       <widget class="QPushButton" name="pushButtonJ">
+       <widget class="QPushButton" name="pushButton10">
         <property name="text">
          <string>Button J</string>
         </property>
        </widget>
       </item>
       <item row="10" column="1">
-       <widget class="QPushButton" name="pushButtonK">
+       <widget class="QPushButton" name="pushButton11">
         <property name="text">
          <string>Button K</string>
         </property>
        </widget>
       </item>
       <item row="11" column="1">
-       <widget class="QPushButton" name="pushButtonL">
+       <widget class="QPushButton" name="pushButton12">
         <property name="text">
          <string>Button L</string>
         </property>
@@ -216,7 +216,7 @@
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="standardButtons">
-       <set>QDialogButtonBox::Close</set>
+       <set>QDialogButtonBox::Close|QDialogButtonBox::Save</set>
       </property>
      </widget>
     </item>
