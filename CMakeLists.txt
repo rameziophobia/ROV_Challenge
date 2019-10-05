@@ -39,6 +39,8 @@ set(UIS
         rov_chall_ui/connectionwindow.ui
     )
 
+list(APPEND CMAKE_PREFIX_PATH "/opt/ros/kinetic")
+
 find_package(catkin REQUIRED COMPONENTS roscpp)
 catkin_package(
   CATKIN_DEPENDS roscpp geometry_msgs

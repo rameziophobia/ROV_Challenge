@@ -3,6 +3,7 @@
 #include "rovtimer.h"
 #include <QtDebug>
 #include <QProcess>
+#include <QNetworkRequest>
 #include <QMessageBox>
 #include "../libs/rossubscriber.h"
 
@@ -31,8 +32,12 @@ MainWindow::MainWindow(QWidget *parent) :
     player1->setVideoOutput(vwmain);
     player2->setVideoOutput(vwsecondary);
 
-    player1->setMedia(QUrl("https://raw.githubusercontent.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4"));
-    player2->setMedia(QUrl("http://techslides.com/demos/sample-videos/small.mp4"));
+
+    const QNetworkRequest requestRtsp1(QUrl("rtsp://localhost:8554/"));
+    const QNetworkRequest requestRtsp2(QUrl("rtsp://localhost:8554/"));
+
+    player1->setMedia(requestRtsp1);
+    player2->setMedia(requestRtsp2);
 
     player1->setMuted(true);
     player2->setMuted(true);
