@@ -17,6 +17,8 @@ set(SOURCES
         rov_chall_ui/mainwindow.cpp
         rov_chall_ui/rovtimer.cpp
         rov_chall_ui/keybindings.cpp
+        rov_chall_ui/connectionwindow.cpp
+        libs/rosservice.cpp
         )
 
 set(MOC_HEADERS
@@ -25,12 +27,24 @@ set(MOC_HEADERS
         rov_chall_ui/mainwindow.h
         rov_chall_ui/rovtimer.h
         rov_chall_ui/keybindings.h
+        rov_chall_ui/connectionwindow.h
+        libs/rosservice.h
+        libs/rospublisher.h
+        libs/rossubscriber.h
         )
 
 set(UIS
         rov_chall_ui/mainwindow.ui
         rov_chall_ui/keybindings.ui
+        rov_chall_ui/connectionwindow.ui
     )
+
+find_package(catkin REQUIRED COMPONENTS roscpp)
+catkin_package(
+  CATKIN_DEPENDS roscpp geometry_msgs
+  DEPENDS system-lib
+)
+include_directories(src ${catkin_INCLUDE_DIRS})
 
 # Next lines needed for building all Qt projects
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
@@ -62,5 +76,8 @@ QT5_USE_MODULES (rov_challenge Multimedia MultimediaWidgets)
 target_link_libraries(rov_challenge ${QT_LIBRARIES} )
 
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
-target_link_libraries(rov_challenge ${SDL2_LIBRARIES})
+target_link_libraries(rov_challenge ${SDL2_LIBRARIES} ${catkin_LIBRARIES})
+install(TARGETS rov_challenge
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 

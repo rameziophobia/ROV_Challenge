@@ -3,10 +3,20 @@
 #include "rovtimer.h"
 #include <QtDebug>
 #include <QProcess>
+#include <QMessageBox>
+#include "../libs/rossubscriber.h"
+
+inline std_msgs::String getRosString(std::string str) {
+    std_msgs::String rs;
+    rs.data = str;
+    return rs;
+}
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    boxesPublisher("/rov_boxes", this),
+    boxesSubscriber("/rov_boxes_info", &MainWindow::msgCallback, this, this)
 {
     ui->setupUi(this);
     rovTimer = new RovTimer;
@@ -36,6 +46,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     player1->play();
     player2->play();
+    ui->boxInfo_lbl->setText("I'm Here");
+}
+
+void MainWindow::msgCallback(std_msgs::String msg) {
+    ui->boxInfo_lbl->setText(msg.data.c_str());
 }
 
 MainWindow::~MainWindow()
@@ -109,16 +124,19 @@ void MainWindow::box_script(QString boxNum)
 void MainWindow::on_box1Detect_btn_clicked()
 {
     box_script("b1");
+    boxesPublisher.send(getRosString("detectBox1"));
 }
 
 void MainWindow::on_box2Detect_btn_clicked()
 {
     box_script("b2");
+    boxesPublisher.send(getRosString("detectBox2"));
 }
 
 void MainWindow::on_box3Detect_btn_clicked()
 {
     box_script("b3");
+    boxesPublisher.send(getRosString("detectBox3"));
 }
 
 void MainWindow::on_compareBoxes_btn_clicked()
