@@ -21,6 +21,7 @@ class keyBindings : public QDialog
 public:
     explicit keyBindings(QWidget *parent = nullptr);
     ~keyBindings();
+    int bindKey();
 
 private slots:
     void loadData();
@@ -43,6 +44,7 @@ private:
     Ui::keyBindings *ui;
     QJsonDocument jsonDocument;
     QJsonObject json;
+    SDL_Event *event;
 
 signals:
     void updatedKeyBindings();

@@ -6,8 +6,16 @@ class joystick_receive
 {
 private:
     //ROS receiver
-    int received;
-    int PWM;
+    int receivedx;
+    int receivedy;
+    int receivedz;
+    int receivedr;
+    int PWMTR;
+    int PWMTL;
+    int PWMBR;
+    int PWMBL;
+    int PWMT;
+    int PWMB;
 public:
     joystick_receive();
 };

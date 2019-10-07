@@ -27,6 +27,8 @@ void Joystick::joystick_update()
 {
     while(SDL_PollEvent(event))
     {
+	qDebug() << SDL_JoystickGetAxis(myJoystick,0);
+        qDebug() << SDL_JoystickGetAxis(myJoystick,1);
         if(event->type == SDL_JOYAXISMOTION)
         {
             if(event->jaxis.axis == 0)

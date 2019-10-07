@@ -1,9 +1,12 @@
-#include "joystick_receive.h"
+#include "joystic_receive.h"
 
-joystick_receive::joystick_receive()
+Joystic_receive::Joystic_receive()
 {
     //initiate receiver, then put received number in received
-    received = 0;
-    PWM = (float)received / 32768.0 * 255;
+    receivedx = 0;
+    receivedy = 0;
+    receivedz = 0;
+    receivedr = 0;
+
     //Send PWM number to hat
 }

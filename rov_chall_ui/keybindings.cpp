@@ -42,6 +42,7 @@ void keyBindings::loadData(){
 
 void keyBindings::on_close_dialogButtonBox_accepted()
 {
+    event = new SDL_Event();
     QString saveFileName = QFileDialog::getSaveFileName(this, tr("Save Settings File"), QString(QDir::currentPath()), tr("JSON (*.json)"));
     QFileInfo fileInfo(saveFileName);   // Using QFileInfo
     QDir::setCurrent(fileInfo.path());  // set the current working directory where the file will be, otherwise it may not work
@@ -57,86 +58,94 @@ void keyBindings::on_close_dialogButtonBox_accepted()
     emit updatedKeyBindings();
 }
 
+int keyBindings::int button = bindKey();
+{
+    while(SDL_PollEvent(event))
+	{
+	    if(event -> type == SDL_JOYBUTTONDOWN){return event->jbutton.button;}	
+	}
+}
+
 void keyBindings::on_pushButton1_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action1"] = sdl;
 }
 
 void keyBindings::on_pushButton2_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action2"] = sdl;
 }
 
 void keyBindings::on_pushButton3_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action3"] = sdl;
 }
 
 void keyBindings::on_pushButton4_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action4"] = sdl;
 }
 
 void keyBindings::on_pushButton5_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action5"] = sdl;
 }
 
 void keyBindings::on_pushButton6_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action6"] = sdl;
 }
 
 void keyBindings::on_pushButton7_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action7"] = sdl;
 }
 
 void keyBindings::on_pushButton8_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action8"] = sdl;
 }
 
 void keyBindings::on_pushButton9_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action9"] = sdl;
 }
 
 void keyBindings::on_pushButton10_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action10"] = sdl;
 }
 
 void keyBindings::on_pushButton11_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action11"] = sdl;
 }
 
 void keyBindings::on_pushButton12_clicked()
 {
-    //wait for sdl event
+    int button = bindKey();
     QString sdl = "sdl input";
     json["action12"] = sdl;
 }
