@@ -69,83 +69,83 @@ int keyBindings::int button = bindKey();
 void keyBindings::on_pushButton1_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action1"] = sdl;
 }
 
 void keyBindings::on_pushButton2_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action2"] = sdl;
 }
 
 void keyBindings::on_pushButton3_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action3"] = sdl;
 }
 
 void keyBindings::on_pushButton4_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action4"] = sdl;
 }
 
 void keyBindings::on_pushButton5_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action5"] = sdl;
 }
 
 void keyBindings::on_pushButton6_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action6"] = sdl;
 }
 
 void keyBindings::on_pushButton7_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action7"] = sdl;
 }
 
 void keyBindings::on_pushButton8_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action8"] = sdl;
 }
 
 void keyBindings::on_pushButton9_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action9"] = sdl;
 }
 
 void keyBindings::on_pushButton10_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action10"] = sdl;
 }
 
 void keyBindings::on_pushButton11_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action11"] = sdl;
 }
 
 void keyBindings::on_pushButton12_clicked()
 {
     int button = bindKey();
-    QString sdl = "sdl input";
+    QString sdl = QString::number(button);
     json["action12"] = sdl;
 }
