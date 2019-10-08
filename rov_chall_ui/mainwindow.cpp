@@ -207,3 +207,13 @@ void MainWindow::on_detectMetal_btn_clicked()
 {
     ui->detectMetal_btn->setEnabled(false);
 }
+
+void MainWindow::on_lineFollower_btn_clicked()
+{
+    QStringList params;
+
+    params << SCRIPTS_PATH + "Line Follower.py";
+
+    QString out = run_script(params);
+    qDebug() << out;
+}

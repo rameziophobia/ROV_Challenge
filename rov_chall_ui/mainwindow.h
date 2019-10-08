@@ -40,6 +40,8 @@ private slots:
 
     void on_detectMetal_btn_clicked();
 
+    void on_lineFollower_btn_clicked();
+
 private:
     Ui::MainWindow *ui;
     RovTimer * rovTimer;
