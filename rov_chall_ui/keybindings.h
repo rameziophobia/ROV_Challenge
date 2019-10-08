@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <SDL.h>
 
 namespace Ui {
 class keyBindings;

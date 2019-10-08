@@ -1,6 +1,6 @@
-#include "joystic_receive.h"
+#include "joystick_receive.h"
 
-Joystic_receive::Joystic_receive()
+joystick_receive::joystick_receive()
 {
     //initiate receiver, then put received number in received
     receivedx = 0;

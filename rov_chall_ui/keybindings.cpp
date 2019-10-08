@@ -58,7 +58,7 @@ void keyBindings::on_close_dialogButtonBox_accepted()
     emit updatedKeyBindings();
 }
 
-int keyBindings::int button = bindKey();
+int keyBindings::bindKey()
 {
     while(SDL_PollEvent(event))
 	{
