@@ -9,6 +9,7 @@
 #include <std_msgs/String.h>
 #include "../libs/rospublisher.h"
 #include "../libs/rossubscriber.h"
+#include "../libs/get_metal_type_client.h"
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +38,8 @@ private slots:
     void on_countCoins_btn_clicked();
     void on_kernal_slider_valueChanged(int value);
 
+    void on_detectMetal_btn_clicked();
+
 private:
     Ui::MainWindow *ui;
     RovTimer * rovTimer;
@@ -58,6 +61,10 @@ private:
     RosSubscriber<std_msgs::String, MainWindow> boxesSubscriber;
 
     void msgCallback(std_msgs::String msg);
+
+    GetMetalTypeClient metalTypeClient;
+    Q_SLOT void metalTypeDetected(QString metalType);
+    Q_SLOT void metalDetectionErrorOccurred();
 };
 
 #endif // MAINWINDOW_H

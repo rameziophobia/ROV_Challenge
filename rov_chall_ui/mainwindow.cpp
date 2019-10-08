@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     boxesPublisher("/rov_boxes", this),
-    boxesSubscriber("/rov_boxes_info", &MainWindow::msgCallback, this, this)
+    boxesSubscriber("/rov_boxes_info", &MainWindow::msgCallback, this, this),
+    metalTypeClient(this)
 {
     ui->setupUi(this);
     rovTimer = new RovTimer;
@@ -47,6 +48,23 @@ MainWindow::MainWindow(QWidget *parent) :
     player1->play();
     player2->play();
     ui->boxInfo_lbl->setText("I'm Here");
+
+    connect(&metalTypeClient, &GetMetalTypeClient::metalDetected, this, &MainWindow::metalTypeDetected);
+    connect(&metalTypeClient, &GetMetalTypeClient::errorOccurred, this, &MainWindow::metalDetectionErrorOccurred);
+    connect(ui->detectMetal_btn, &QPushButton::clicked, &metalTypeClient, &GetMetalTypeClient::metalTypeNeeded);
+}
+
+void MainWindow::metalTypeDetected(QString metalType) {
+    ui->metalType_lbl->setText(metalType);
+    ui->detectMetal_btn->setEnabled(true);
+}
+
+void MainWindow::metalDetectionErrorOccurred() {
+    QMessageBox box;
+    box.setText("ROV couldn't detect the type of metal");
+    box.exec();
+    ui->detectMetal_btn->setEnabled(true);
+    ui->metalType_lbl->setText("");
 }
 
 void MainWindow::msgCallback(std_msgs::String msg) {
@@ -183,4 +201,9 @@ void MainWindow::on_kernal_slider_valueChanged(int value)
     // if value is even increment by 1
     value = (value % 2 == 0) ? value + 1 : value;
     ui->kernalSize_lbl->setText(QString::number(value));
+}
+
+void MainWindow::on_detectMetal_btn_clicked()
+{
+    ui->detectMetal_btn->setEnabled(false);
 }

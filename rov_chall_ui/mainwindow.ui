@@ -147,7 +147,7 @@
      <item row="2" column="2">
       <widget class="QLabel" name="metalType_lbl">
        <property name="text">
-        <string>Aluminum</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
