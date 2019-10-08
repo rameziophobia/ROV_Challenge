@@ -31,6 +31,7 @@ set(MOC_HEADERS
         libs/rosservice.h
         libs/rospublisher.h
         libs/rossubscriber.h
+        libs/get_metal_type_client.h
         )
 
 set(UIS
@@ -39,11 +40,19 @@ set(UIS
         rov_chall_ui/connectionwindow.ui
     )
 
-find_package(catkin REQUIRED COMPONENTS roscpp)
+find_package(catkin REQUIRED COMPONENTS roscpp message_generation message_runtime geometry_msgs std_msgs)
+
+add_service_files(
+    FILES
+    GetMetalType.srv
+    )
+generate_messages()
+
 catkin_package(
   CATKIN_DEPENDS roscpp geometry_msgs
   DEPENDS system-lib
 )
+
 include_directories(src ${catkin_INCLUDE_DIRS})
 
 # Next lines needed for building all Qt projects
