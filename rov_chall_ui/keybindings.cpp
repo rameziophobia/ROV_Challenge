@@ -60,10 +60,11 @@ void keyBindings::on_close_dialogButtonBox_accepted()
 
 int keyBindings::int button = bindKey();
 {
-    while(SDL_PollEvent(event))
-	{
-	    if(event -> type == SDL_JOYBUTTONDOWN){return event->jbutton.button;}	
-	}
+    while(1)
+    {
+        if(SDL_PollEvent(event))
+            if(event -> type == SDL_JOYBUTTONDOWN){return event->jbutton.button;}
+    }
 }
 
 void keyBindings::on_pushButton1_clicked()
