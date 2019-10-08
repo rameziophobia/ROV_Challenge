@@ -1,6 +1,6 @@
 #include "joystick.h"
 
-Joystick::Joystick(QObject *parent) : QObject(parent)
+Joystick::Joystick(QObject *parent) : QObject(parent), velocityPublisher("/rov_velocity", this)
 {
     SDL_Init(SDL_INIT_JOYSTICK);
 
@@ -34,7 +34,7 @@ void Joystick::joystick_update()
             if(event->jaxis.axis == 0)
             {
                 if(abs(event->jaxis.value - prevx) > 2150){
-                    //Send SDL_JoystickGetAxis(myJoystick,0) + SDL_JoystickGetAxis(myJoystick,1) + SDL_JoystickGetAxis(myJoystick,2) to PI using a topic
+                    publishVelocity(SDL_JoystickGetAxis(myJoystick,0), SDL_JoystickGetAxis(myJoystick,1), SDL_JoystickGetAxis(myJoystick,2));
                     prevx = event->jaxis.value;
                 }
 
@@ -42,17 +42,25 @@ void Joystick::joystick_update()
             else if(event->jaxis.axis == 1)
             {
                 if(abs(event->jaxis.value - prevy) > 2150){
-                    //Send SDL_JoystickGetAxis(myJoystick,0) + SDL_JoystickGetAxis(myJoystick,1) + SDL_JoystickGetAxis(myJoystick,2) to PI using a topic
+                    publishVelocity(SDL_JoystickGetAxis(myJoystick,0), SDL_JoystickGetAxis(myJoystick,1), SDL_JoystickGetAxis(myJoystick,2));
                     prevy = event->jaxis.value;
                 }
             }
             else if(event->jaxis.axis == 2)
             {
                 if(abs(event->jaxis.value - prevz) > 2150){
-                    //Send SDL_JoystickGetAxis(myJoystick,0) + SDL_JoystickGetAxis(myJoystick,1) + SDL_JoystickGetAxis(myJoystick,2) to PI using a topic
+                    publishVelocity(SDL_JoystickGetAxis(myJoystick,0), SDL_JoystickGetAxis(myJoystick,1), SDL_JoystickGetAxis(myJoystick,2));
                     prevz = event->jaxis.value;
                 }
             }
         }
     }
+}
+
+void Joystick::publishVelocity(Sint16 x, Sint16 y, Sint16 z) {
+    geometry_msgs::Twist msg;
+    msg.linear.x = x;
+    msg.linear.y = y;
+    msg.linear.z = z;
+    velocityPublisher.send(msg);
 }

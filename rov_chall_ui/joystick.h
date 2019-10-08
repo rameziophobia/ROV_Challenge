@@ -7,6 +7,8 @@
 #include "QDebug"
 #include "QThread"
 #include <QTimer>
+#include <geometry_msgs/Twist.h>
+#include "../libs/rospublisher.h"
 
 class Joystick : public QObject
 {
@@ -17,7 +19,9 @@ private:
     QTimer * timer;
     SDL_Event *event;
     int prevx, prevy, prevz;
-    //Publisher
+    RosPublisher<geometry_msgs::Twist> velocityPublisher;
+    void publishVelocity(Sint16 x, Sint16 y, Sint16 z);
+
 public:
     explicit Joystick(QObject *parent = nullptr);
 
